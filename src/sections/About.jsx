@@ -41,7 +41,7 @@ const About = () => {
             </div>
             <h2 className="text-4xl md:text-4xl font-bold leading-tight animate-fade-in animation-delay-100 text-white">
               Why do some websites feel{" "}
-              <span className="text-primary font-serif font-normal italic">
+              <span className="text-secondary-foreground font-serif font-normal italic">
                 {" "}
                 effortless{" "}
               </span>{" "}
@@ -72,7 +72,7 @@ const About = () => {
                 animationDelay:`${(index + 1) * 100}ms`
               }}>  
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
-                <item.icon className="w-6 h-6 text-primary" />
+                <item.icon className="w-6 h-6 text-secondary-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>

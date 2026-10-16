@@ -10,7 +10,8 @@
 --color-primary-foreground: #ffffff;
 
 --color-secondary:  #1f2830;
---color-secondary-foreground:  #89b3fa;
+--color-secondary-foreground: #89b3fa;  /* #89b3fa;*/
+
 
 --color-muted:  #252e37;
 --color-muted-foreground:  #7a8491;
@@ -150,8 +151,12 @@
 .animation-delay-600 {
   animation-delay: 600ms;
 }
-
-
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
 
 .group:hover .animated-border-path{
 animation: animated-border 1.5s linear infinite ;
@@ -161,4 +166,25 @@ animation: animated-border 1.5s linear infinite ;
   backdrop-filter: blur(16px);
   box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
+
+.timeline-glow{
+  box-shadow:0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent 
+  )
 }
+
+}
+
+
+
+@keyframes particle-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+

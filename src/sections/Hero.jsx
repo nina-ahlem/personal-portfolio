@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@/components/Button";
-import { ArrowRight, Github, Instagram, Linkedin } from "lucide-react";
+import { Download,ArrowRight, Github, Instagram, Linkedin } from "lucide-react";
 import AnimatedBorderButton from "@/components/AnimatedBorderButton";
 
 const skills = [
@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* BG */}
-      <div className="absolute inset-0 ">
+      {/* <div className="absolute inset-0 ">
         <img
           src="/hero13.jpg"
           alt="hero image"
@@ -34,9 +34,9 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background"></div>
       </div>
-
+*/}
       {/* blue dots */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+     {/*} <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
             key={i}
@@ -52,7 +52,84 @@ const Hero = () => {
         ))}
       </div>
 
-      {/*Content*/}
+{/*Content*/}
+
+
+{/* Connected geometric particles */}
+<div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <svg
+    className="absolute inset-0 w-full h-full"
+    viewBox="0 0 1000 700"
+    preserveAspectRatio="none"
+  >
+    <defs>
+      <radialGradient id="particleGlow">
+        <stop offset="0%" stopColor="#b6edff" />
+        <stop offset="100%" stopColor="#38a8f5" />
+      </radialGradient>
+    </defs>
+
+    {(() => {
+      const points = Array.from({ length: 38 }, (_, i) => ({
+        x: Math.random() * 1000,
+        y: Math.random() * 700,
+        r: 1.5 + Math.random() * 2,
+        delay: Math.random() * 5,
+        id: i,
+      }));
+
+      const links = [];
+
+      points.forEach((a, i) => {
+        points.slice(i + 1).forEach((b) => {
+          const distance = Math.hypot(a.x - b.x, a.y - b.y);
+
+          if (distance < 155) {
+            links.push({ a, b, distance });
+          }
+        });
+      });
+
+      return (
+        <>
+          {/* Connecting lines */}
+          {links.map(({ a, b, distance }, i) => (
+            <line
+              key={`line-${i}`}
+              x1={a.x}
+              y1={a.y}
+              x2={b.x}
+              y2={b.y}
+              stroke="#5bc5fa"
+              strokeWidth="0.8"
+              strokeOpacity={0.32 * (1 - distance / 155)}
+            />
+          ))}
+
+          {/* Glowing nodes */}
+          {points.map((p) => (
+            <circle
+              key={p.id}
+              cx={p.x}
+              cy={p.y}
+              r={p.r}
+              fill="url(#particleGlow)"
+              style={{
+                transformBox: "fill-box",
+                transformOrigin: "center",
+                animation: `particle-pulse 4s ease-in-out ${p.delay}s infinite`,
+              }}
+            />
+          ))}
+        </>
+      );
+    })()}
+  </svg>
+</div>
+
+
+
+
       <div className="container mx-auto px-10 md:px-30 pt-30 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/*left side*/}
@@ -79,10 +156,10 @@ const Hero = () => {
             </div>
             {/** buttons */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
+              <Button size="lg" >
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
-              <AnimatedBorderButton />
+              <AnimatedBorderButton ><Download className='w-5 h-5'/> Download CV</AnimatedBorderButton >
             </div>
 
             {/** Social Links */}
